@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tree of Wisdom</title>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <style>
+        html {
+            font-size: 14px;
+        }
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #222;
+            color: #fff;
+        }
+        h2 {
+            font-size: 1.25rem;
+        }
+        .table {
+            display: flex;
+            gap: .5rem;
+        }
+        p {
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            padding-inline: .5rem;
+            background-color: #333;
+            margin-block: .5rem;
+            border-radius: .5rem;
+            line-height: 1;
+        }
+        .skip {
+            background-color: #282828;
+        }
+        .c01,.c02,.c03,.c04,.c05,.c06,.c07,.c08,.c09,.c10,.c11,.c12,.c13,.c14 {
+            box-shadow: 0 0 0px 1px #8f8a8a54 inset;
+        }
+        .assigned {
+            background-color: #4b3050;
+        }
+        .open {
+            background-color: #101010;
+        }
+        .highlight {
+            box-shadow: 0 0 1px 1px #9a9a66 inset;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="table">
+        <div class="column">
+            <h2>#</h2>
+            <p>1</p>
+            <p>2</p>
+            <p>3</p>
+            <p>4</p>
+            <p>5</p>
+            <p>6</p>
+            <p>7</p>
+            <p>8</p>
+            <p>9</p>
+        </div>
+        <div class="column">
+            <h2>Illumination</h2>
+            <p class="assigned">Purifications & Exaltations</p>
+            <p class="c05 assigned">Pyroglyphics</p>
+            <p class="c08 assigned">Disciplines of the Scar</p>
+            <p class="assigned">Glaziery & Lightsmithing</p>
+            <p class="assigned">Meniscate Reflections</p>
+            <p class="skip open">&nbsp;</p>
+            <p class="c14 assigned">Disciplines of the Hammer</p>
+            <p class="open">Preliminal Meter</p>
+            <p class="">Auroral Contemplations</p>
+        </div>
+        <div class="column">
+            <h2>Hushery</h2>
+            <p class="assigned">Ericapaean</p>
+            <p class="c01 assigned">Snow Stories</p>
+            <p class="skip open">&nbsp;</p>
+            <p class="c08 open">Maggephene Mysteries</p>
+            <p class="c09 assigned">Sharps</p>
+            <p class="c14 assigned">Glassblowing & Vesselcrafting</p>
+            <p class="assigned">Serpents & Venoms</p>
+            <p class="open">Sights & Sensations</p>
+            <p class="">Inks of Power</p>
+        </div>
+        <div class="column">
+            <h2>Nyctodromy</h2>
+            <p class="c01 assigned">Vak</p>
+            <p class="c02 assigned">Hyksos</p>
+            <p class="assigned">Door & Wall</p>
+            <p class="c09 assigned">Sickle & Eclipse</p>
+            <p class="assigned">Pearl & Tide</p>
+            <p class="open skip">&nbsp;</p>
+            <p class="c12 open">Watchman's Paradoxes</p>
+            <p class="">Path & Pilgrim</p>
+            <p class="">Coil & Chasm</p>
+        </div>
+        <div class="column">
+            <h2>Skolekosophy</h2>
+            <p class="skip c02 open">&nbsp;</p>
+            <p class="c03 assigned">Killasimi</p>
+            <p class="assigned">Ragged Crossroads</p>
+            <p class="assigned">Horns & Ivories</p>
+            <p class="c12 assigned">Edicts Liminal</p>
+            <p class="assigned">Putrefactions & Calcinations</p>
+            <p class="assigned">Lockworks & Clockworks</p>
+            <p class="open">Solutions & Separations</p>
+            <p class="">Rhyme & Remembrance</p>
+        </div>
+        <div class="column">
+            <h2>The Bosk</h2>
+            <p class="c03 assigned">Weaving & Knotworking</p>
+            <p class="c04 c06 assigned">Furs & Feathers</p>
+            <p class="skip open">&nbsp;</p>
+            <p class="c10 assigned">Desires & Dissolutions</p>
+            <p class="assigned">Applebright Euphonies</p>
+            <p class="assigned">Resurgences & Emergences</p>
+            <p class="assigned">Orchids & Narcotics</p>
+            <p class="open">Drums & Dances</p>
+            <p class="">Insects & Nectars</p>
+        </div>
+        <div class="column">
+            <h2>Preservation</h2>
+            <p class="c04 assigned">Cracktrack</p>
+            <p class="assigned">Hill & Hollow</p>
+            <p class="c06 assigned">Surgeries & Exsanguinations</p>
+            <p class="assigned">Quenchings & Quellings</p>
+            <p class="c10 assigned">Tridesma Hiera</p>
+            <p class="assigned">Herbs & Infusions</p>
+            <p class="assigned">Edicts Inviolable</p>
+            <p class="open">Stone Stories</p>
+            <p class="">Rites of the Roots</p>
+        </div>
+        <div class="column">
+            <h2>Birdsong</h2>
+            <p class="assigned">Ramsund</p>
+            <p class="assigned">Sea Stories</p>
+            <p class="c07 assigned">Pentiments & Precursors</p>
+            <p class="skip open">&nbsp;</p>
+            <p class="c11 assigned">Wolf Stories</p>
+            <p class="assigned">Sand Stories</p>
+            <p class="assigned">Strings & Songs</p>
+            <p class="open">Sky Stories</p>
+            <p class="">Leaves & Thorns</p>
+        </div>
+        <div class="column">
+            <h2>Horomachistry</h2>
+            <p class="skip open">&nbsp;</p>
+            <p class="c07 assigned">Sabazine</p>
+            <p class="assigned">Bells & Brazieries</p>
+            <p class="c11 assigned">Sacra Limiae</p>
+            <p class="c13 assigned">The Great Signs and the Great Scars</p>
+            <p class="assigned">Sacra Solis Invicti</p>
+            <p class="assigned">Ouranoscopy</p>
+            <p class="open">Inks of Containment</p>
+            <p class="">Edicts Martial</p>
+        </div>
+        <div class="column">
+            <h2>Ithastry</h2>
+            <p class="assigned">Deep Mandaic</p>
+            <p class="c05 assigned">Fucine</p>
+            <p class="assigned">Kernewek Henavek</p>
+            <p class="open skip">&nbsp;</p>
+            <p class="c13 assigned">Spices & Savours</p>
+            <p class="assigned">Stitching & Binding</p>
+            <p class="assigned">Inks of Revelation</p>
+            <p class="open">Anbary & Lapidary</p>
+            <p class="">Transformations & Liberations</p>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $('.c01').mouseover(function(){$('.c01').addClass('highlight');});
+        $('.c01').mouseout(function(){$('.c01').removeClass('highlight');});
+        $('.c02').mouseover(function(){$('.c02').addClass('highlight');});
+        $('.c02').mouseout(function(){$('.c02').removeClass('highlight');});
+        $('.c03').mouseover(function(){$('.c03').addClass('highlight');});
+        $('.c03').mouseout(function(){$('.c03').removeClass('highlight');});
+        $('.c04').mouseover(function(){$('.c04').addClass('highlight');});
+        $('.c04').mouseout(function(){$('.c04').removeClass('highlight');});
+        $('.c05').mouseover(function(){$('.c05').addClass('highlight');});
+        $('.c05').mouseout(function(){$('.c05').removeClass('highlight');});
+        $('.c06').mouseover(function(){$('.c06').addClass('highlight');});
+        $('.c06').mouseout(function(){$('.c06').removeClass('highlight');});
+        $('.c07').mouseover(function(){$('.c07').addClass('highlight');});
+        $('.c07').mouseout(function(){$('.c07').removeClass('highlight');});
+        $('.c08').mouseover(function(){$('.c08').addClass('highlight');});
+        $('.c08').mouseout(function(){$('.c08').removeClass('highlight');});
+        $('.c09').mouseover(function(){$('.c09').addClass('highlight');});
+        $('.c09').mouseout(function(){$('.c09').removeClass('highlight');});
+        $('.c10').mouseover(function(){$('.c10').addClass('highlight');});
+        $('.c10').mouseout(function(){$('.c10').removeClass('highlight');});
+        $('.c11').mouseover(function(){$('.c11').addClass('highlight');});
+        $('.c11').mouseout(function(){$('.c11').removeClass('highlight');});
+        $('.c12').mouseover(function(){$('.c12').addClass('highlight');});
+        $('.c12').mouseout(function(){$('.c12').removeClass('highlight');});
+        $('.c13').mouseover(function(){$('.c13').addClass('highlight');});
+        $('.c13').mouseout(function(){$('.c13').removeClass('highlight');});
+        $('.c14').mouseover(function(){$('.c14').addClass('highlight');});
+        $('.c14').mouseout(function(){$('.c14').removeClass('highlight');});
+    </script>
+</body>
+
+</html>
